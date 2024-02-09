@@ -5,10 +5,10 @@ const express = require("express");
 
 const app = express();
 // this use method is the middleware used for managing paths
-app.use((req,res,next)=>{
-  console.log(req.path,req.method)
-  next()
-})
+app.use((req, _res, next) => {
+  console.log(req.path, req.method);
+  next();
+});
 // A get request to / route
 app.get("/", (req, res) => {
   res.send({ message: "Hello World!" });
