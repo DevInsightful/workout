@@ -1,6 +1,6 @@
 // this is used to import .env that makes credentials secure
 require("dotenv").config();
-
+const workoutRoutes = require("./routes/workouts");
 const express = require("express");
 
 const app = express();
