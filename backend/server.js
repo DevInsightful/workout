@@ -9,10 +9,9 @@ app.use((req, _res, next) => {
   console.log(req.path, req.method);
   next();
 });
-// A get request to / route
-app.get("/", (req, res) => {
-  res.send({ message: "Hello World!" });
-});
+// this will redirect to all the routes in the workoutRoutes
+// if i add one more argument before workoutRoutes as string argument it will percive it as root route
+app.use(workoutRoutes)
 // this is to listen all the requests
 app.listen(process.env.PORT, () => {
   console.log("Server Succesfully running on", process.env.PORT);
