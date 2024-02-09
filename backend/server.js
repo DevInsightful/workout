@@ -11,7 +11,7 @@ app.use((req, _res, next) => {
 });
 // this will redirect to all the routes in the workoutRoutes
 // if i add one more argument before workoutRoutes as string argument it will percive it as root route
-app.use(workoutRoutes)
+app.use("/home", workoutRoutes);
 // this is to listen all the requests
 app.listen(process.env.PORT, () => {
   console.log("Server Succesfully running on", process.env.PORT);
