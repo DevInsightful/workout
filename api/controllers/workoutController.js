@@ -13,13 +13,13 @@ const getById = (req, res) => {
 };
 
 const addWorkout = async (req, res) => {
-  const { reps, title, load } = req.body;
-  try {
-    const newWorkout = await workout.create({ title, reps, load });
-    res.status(201).json({ message: newWorkout });
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-    return null;
-  }
+  // const { reps, title, load } = req.body;
+  // try {
+  //   const newWorkout = await workout.create({ title, reps, load });
+  //   res.status(201).json({ message: newWorkout });
+  // } catch (error) {
+  //   res.status(400).json({ message: error.message });
+  //   return null;
+  // }
 };
 module.exports = { gellAllWorkouts, getById, addWorkout };
