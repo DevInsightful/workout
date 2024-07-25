@@ -1,8 +1,16 @@
 const express = require("express");
-const router = express.Router();
+const workoutroutes = express.Router();
 
-router.get("/workout", (req, res) => {
+workoutroutes.get("/", (req, res) => {
   res.json({ message: "working" });
 });
-
-module.exports = router;
+workoutroutes.post("/", (req, res) => {
+  res.json({ message: "working" });
+});
+workoutroutes.patch("/:id", (req, res) => {
+  res.json({ message: "working" });
+});
+workoutroutes.delete("/:id", (req, res) => {
+  res.json({ message: "working" });
+});
+module.exports = workoutroutes;
