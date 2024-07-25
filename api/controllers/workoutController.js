@@ -5,6 +5,8 @@ const gellAllWorkouts = (req, res) => {
   res.json({ message: "get all" });
 };
 const getById = (req, res) => {
-  res.json({ message: "get one" });
+    const { id } = req.params;
+    console.log(id);
+    res.json({ message: `get one ${id}` });
 };
 module.exports = { gellAllWorkouts, getById };
