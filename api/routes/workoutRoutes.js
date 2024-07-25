@@ -8,7 +8,7 @@ workoutroutes.post("/", (req, res) => {
   res.json({ message: "working" });
 });
 workoutroutes.patch("/:id", (req, res) => {
-  res.json({ message: "working" });
+  res.json({ message: "updated" });
 });
 workoutroutes.delete("/:id", (req, res) => {
   res.json({ message: "working" });
