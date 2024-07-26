@@ -6,13 +6,17 @@ const gellAllWorkouts = async (req, res) => {
   console.log(workouts);
   res.json({ message: workouts });
 };
-const getById = (req, res) => {
+const getById = async (req, res) => {
   const { id } = req.params;
-  console.log(id);
-  res.json({ message: `get one ${id}` });
+  try {
+    const query = await workout.find({ _id: id });
+    res.json(query);
+  } catch (error) {
+    console.log(error.message);
+  }
 };
 
-const addWorkout = async (req, res) => {
+const addOne = async (req, res) => {
   const { reps, title, load } = req.body;
   try {
     const newWorkout = await workout.create({ title, reps, load });
@@ -22,4 +26,14 @@ const addWorkout = async (req, res) => {
     return null;
   }
 };
-module.exports = { gellAllWorkouts, getById, addWorkout };
+
+const deleteOne = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const deleted = await workout.findByIdAndDelete({ _id: id });
+    res.json({ message: `deleted ${deleted}` });
+  } catch (error) {
+    res.json({ error: error.message });
+  }
+};
+module.exports = { gellAllWorkouts, getById, addOne, deleteOne };
