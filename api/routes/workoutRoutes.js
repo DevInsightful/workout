@@ -12,7 +12,12 @@ const workoutroutes = express.Router();
 workoutroutes.get("/", gellAllWorkouts);
 // get a specific workout
 workoutroutes.get("/:id", getById);
+// add new workout
 workoutroutes.post("/", addOne);
+// update a workout
 workoutroutes.patch("/:id", update);
+// delete a workout
 workoutroutes.delete("/:id", deleteOne);
+
+
 module.exports = workoutroutes;
