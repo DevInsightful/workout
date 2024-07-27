@@ -36,4 +36,18 @@ const deleteOne = async (req, res) => {
     res.json({ error: error.message });
   }
 };
-module.exports = { gellAllWorkouts, getById, addOne, deleteOne };
+
+const update = async (req, res) => {
+  const { id } = req.params;
+  const { load, reps, title } = req.body;
+  try {
+    const updated = await workout.findByIdAndUpdate(
+      { _id: id },
+      { load, reps, title }
+    );
+    res.status(200).json({ message: `updated ${updated}` });
+  } catch (err) {
+    res.status(400).json({ error: error.message });
+  }
+};
+module.exports = { gellAllWorkouts, getById, addOne, deleteOne, update };

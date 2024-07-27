@@ -4,6 +4,7 @@ const {
   getById,
   addOne,
   deleteOne,
+  update,
 } = require("../controllers/workoutController");
 const workoutroutes = express.Router();
 
@@ -12,8 +13,6 @@ workoutroutes.get("/", gellAllWorkouts);
 // get a specific workout
 workoutroutes.get("/:id", getById);
 workoutroutes.post("/", addOne);
-workoutroutes.patch("/:id", (req, res) => {
-  res.json({ message: "updated" });
-});
+workoutroutes.patch("/:id", update);
 workoutroutes.delete("/:id", deleteOne);
 module.exports = workoutroutes;
