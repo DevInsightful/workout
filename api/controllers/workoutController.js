@@ -13,13 +13,15 @@ const gellAllWorkouts = async (req, res) => {
 const getById = async (req, res) => {
   const { id } = req.params;
   if (!mongoose.isValidObjectId(id)) {
-    return res.status(204).json({ message: "Invalid ID" });
+    res.status(204).json({ message: "Invalid ID" });
+    return;
   }
 
   try {
     const query = await workout.find({ _id: id });
     if (!query) {
-      return res.status(203).json({ message: "no user record found" });
+      res.status(203).json({ message: "no user record found" });
+      return;
     }
     res.status(200).json(query);
   } catch (err) {
@@ -28,10 +30,10 @@ const getById = async (req, res) => {
 };
 
 const addOne = async (req, res) => {
-  // const { reps, title, load } = req.body;
   try {
-    const newWorkout = await workout.create(...req.body);
+    const newWorkout = await workout.create({ ...req.body });
     res.status(201).json({ message: newWorkout });
+    return;
   } catch (error) {
     return res.status(400).json({ message: error.message });
   }
@@ -40,29 +42,36 @@ const addOne = async (req, res) => {
 const deleteOne = async (req, res) => {
   const { id } = req.params;
   if (!mongoose.isValidObjectId(id)) {
-    return res.status(204).json({ message: "Invalid ID" });
+    res.status(204).json({ message: "Invalid ID" });
+    return;
   }
   try {
     const deleted = await workout.findByIdAndDelete({ _id: id });
     if (!deleted) {
       res.status(400).json({ message: "No user record" });
+      return;
     }
     res.status(200).json({ message: `deleted ${deleted}` });
   } catch (err) {
-    return res.json({ error: err.message });
+    res.json({ error: err.message });
   }
 };
 
 const update = async (req, res) => {
   const { id } = req.params;
   if (!mongoose.isValidObjectId(id)) {
-    return res.status(204).json({ message: "Invalid ID" });
+    res.status(204).json({ message: "Invalid ID" });
+    return;
   }
 
   try {
-    const updated = await workout.findByIdAndUpdate({ _id: id }, ...req.body);
+    const updated = await workout.findByIdAndUpdate(
+      { _id: id },
+      { ...req.body }
+    );
     if (!updated) {
-      return res.status(400).json({ message: "No user record" });
+      res.status(400).json({ message: "No user record" });
+      return;
     }
     res.status(200).json({ message: `updated ${updated}` });
   } catch (err) {
