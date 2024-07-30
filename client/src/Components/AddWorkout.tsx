@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 const AddWorkout = () => {
+  const [title, setTitle] = useState<string>("");
+  const [load, setLoad] = useState<string>("");
+  const [reps, setReps] = useState<string>("");
   const handleSubmit = (e: any) => {
-    e.preventDefaults();
+    e.preventDefault();
+    console.log(title, load, reps);
   };
   return (
     <>
@@ -14,20 +18,36 @@ const AddWorkout = () => {
           <label className="subText mb-3" htmlFor="title">
             Excersize Title:
           </label>
-          <input id="title" type="text" />
+          <input
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            id="title"
+            type="text"
+          />
         </div>
         <div className="flex flex-col">
           <label className="subText mb-3" htmlFor="load">
             Load (in kg):
           </label>
-          <input id="load" type="number" />
+          <input
+            onChange={(e) => setLoad(e.target.value)}
+            id="load"
+            value={load}
+            type="number"
+          />
         </div>
         <div className="flex flex-col">
           <label className="subText mb-3" htmlFor="reps">
             Reps:
           </label>
-          <input id="reps" type="number" />
+          <input
+            onChange={(e) => setReps(e.target.value)}
+            id="reps"
+            value={reps}
+            type="number"
+          />
         </div>
+        <button type="submit">Add Workout</button>
       </form>
     </>
   );

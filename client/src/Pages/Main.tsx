@@ -7,7 +7,7 @@ import AddWorkout from "../Components/AddWorkout";
 const Main: React.FC<IWorkouts> = ({ workouts }) => {
   return (
     <div className="bg-[#f1f1f1] min-h-screen">
-      <div className="bg-white px-40">
+      <div className="bg-white px-40 sticky top-0 z-50">
         <Navbar title="Workout Buddy" />
       </div>
       <div className="px-40 flex py-5 space-x-5">
@@ -15,7 +15,7 @@ const Main: React.FC<IWorkouts> = ({ workouts }) => {
           <Workouts workouts={workouts} />
         </div>
         <div className="relative grow ">
-          <div className="sticky top-0 ">
+          <div className="sticky top-20\">
             <AddWorkout />
           </div>
         </div>
