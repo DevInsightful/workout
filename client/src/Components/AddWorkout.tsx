@@ -7,6 +7,9 @@ const AddWorkout = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     console.log(title, load, reps);
+    setLoad("");
+    setReps("");
+    setTitle("");
   };
   return (
     <>
