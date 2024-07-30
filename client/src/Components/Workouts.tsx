@@ -5,7 +5,7 @@ const Workouts: React.FC<IWorkouts> = ({ workouts }) => {
   const display = workouts.map((workouts, index) => {
     return <Workout key={index} {...workouts} />;
   });
-  return <div className="flex flex-col gap-8 py-5">{display}</div>;
+  return <div className="flex flex-col gap-8">{display}</div>;
 };
 
 export default Workouts;

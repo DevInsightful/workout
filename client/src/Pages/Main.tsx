@@ -10,12 +10,12 @@ const Main: React.FC<IWorkouts> = ({ workouts }) => {
       <div className="bg-white px-40">
         <Navbar title="Workout Buddy" />
       </div>
-      <div className="px-40 flex gap-[5vw]">
+      <div className="px-40 flex py-5 space-x-5">
         <div className="w-3/4">
           <Workouts workouts={workouts} />
         </div>
-        <div className="relative bg-black grow">
-          <div className="bg-red-400 fixed">
+        <div className="relative grow ">
+          <div className="">
             <AddWorkout />
           </div>
         </div>
