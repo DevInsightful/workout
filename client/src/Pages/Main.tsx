@@ -15,7 +15,7 @@ const Main: React.FC<IWorkouts> = ({ workouts }) => {
           <Workouts workouts={workouts} />
         </div>
         <div className="relative grow ">
-          <div className="">
+          <div className="sticky top-0 ">
             <AddWorkout />
           </div>
         </div>
