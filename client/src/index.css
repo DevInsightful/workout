@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.subText {
+  @apply text-[#76716c] text-base font-bold mr-[4px];
+}
+.valueText {
+  @apply text-sm text-[#989a9d] font-semibold;
+}
