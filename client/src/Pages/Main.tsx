@@ -4,8 +4,9 @@ import Workouts from "../Components/Workouts";
 import { IWorkouts } from "../Components/types";
 import AddWorkout from "../Components/AddWorkout";
 
-const Main: React.FC<IWorkouts> = ({ workouts, message }) => {
+const Main: React.FC<IWorkouts> = ({ workouts }) => {
   const [refresh, setRefresh] = useState(false);
+  // console.log();
 
   return (
     <div className="bg-[#f1f1f1] min-h-screen">
@@ -14,7 +15,7 @@ const Main: React.FC<IWorkouts> = ({ workouts, message }) => {
       </div>
       <div className="px-40 flex py-5 space-x-5 flex-wrap-reverse">
         <div className="w-3/4">
-          {workouts ? <Workouts workouts={workouts} /> : <h6>{message}</h6>}
+          <Workouts workouts={workouts} />
         </div>
         <div className="relative grow ">
           <div className="sticky top-20\">
