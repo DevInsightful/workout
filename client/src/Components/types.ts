@@ -9,5 +9,4 @@ export interface IWorkout {
 }
 export interface IWorkouts{
     workouts:IWorkout[]|string,
-    message?:string|boolean
 }
