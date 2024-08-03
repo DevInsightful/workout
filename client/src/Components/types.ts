@@ -6,6 +6,7 @@ export interface IWorkout {
   load?: number;
   reps?: number;
   time?: any;
+  _id?:any;
 }
 export interface IWorkouts{
     workouts:IWorkout[]|string,

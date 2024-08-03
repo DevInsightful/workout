@@ -1,7 +1,16 @@
 import React from "react";
 import { IWorkout } from "./types";
 
-const Workout: React.FC<IWorkout> = ({ title, load, reps, time }) => {
+const Workout: React.FC<IWorkout> = ({ title, load, reps, time, _id }) => {
+  const handleClick = async (_id: number) => {
+    const res = await fetch(`http://localhost:4000/workout/${_id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    // const data = await res.json();
+  };
   return (
     <div className="bg-white p-5 flex justify-between">
       <div>
@@ -17,7 +26,12 @@ const Workout: React.FC<IWorkout> = ({ title, load, reps, time }) => {
         <p className="valueText">{time}</p>
       </div>
       <div>
-        <button>delete</button>
+        <button
+          onClick={() => handleClick(_id)}
+          className=" material-icons-outlined"
+        >
+          delete
+        </button>
       </div>
     </div>
   );

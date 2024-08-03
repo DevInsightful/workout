@@ -6,7 +6,7 @@ import AddWorkout from "../Components/AddWorkout";
 
 const Main: React.FC<IWorkouts> = ({ workouts }) => {
   const [refresh, setRefresh] = useState(false);
-  // console.log();
+  console.log(workouts);
 
   return (
     <div className="bg-[#f1f1f1] min-h-screen">
