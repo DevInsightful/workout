@@ -8,5 +8,6 @@ export interface IWorkout {
   time?: any;
 }
 export interface IWorkouts{
-    workouts:IWorkout[]|undefined
+    workouts:IWorkout[]|undefined,
+    message?:string|boolean
 }

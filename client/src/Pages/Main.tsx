@@ -4,7 +4,7 @@ import Workouts from "../Components/Workouts";
 import { IWorkouts } from "../Components/types";
 import AddWorkout from "../Components/AddWorkout";
 
-const Main: React.FC<IWorkouts> = ({ workouts }) => {
+const Main: React.FC<IWorkouts> = ({ workouts, message }) => {
   const [refresh, setRefresh] = useState(false);
 
   return (
@@ -12,9 +12,9 @@ const Main: React.FC<IWorkouts> = ({ workouts }) => {
       <div className="bg-white px-40 sticky top-0 z-50">
         <Navbar title="Workout Buddy" />
       </div>
-      <div className="px-40 flex py-5 space-x-5">
+      <div className="px-40 flex py-5 space-x-5 flex-wrap-reverse">
         <div className="w-3/4">
-          {workouts && <Workouts workouts={workouts} />}
+          {workouts ? <Workouts workouts={workouts} /> : <h6>{message}</h6>}
         </div>
         <div className="relative grow ">
           <div className="sticky top-20\">

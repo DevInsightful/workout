@@ -1,5 +1,4 @@
 require("dotenv").config();
-// const { connection } = require("./dbConnect");
 const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
