@@ -42,7 +42,7 @@ const Workout: React.FC<IWorkout> = ({
       <div>
         <button
           onClick={() => handleClick(_id)}
-          className=" material-icons-outlined"
+          className=" material-icons-outlined bg-[#f1f1f1] rounded-full p-1"
         >
           delete
         </button>
