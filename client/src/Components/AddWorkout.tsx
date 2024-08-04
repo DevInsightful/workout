@@ -1,15 +1,26 @@
 import React, { useState } from "react";
+import { IReload } from "./types";
 
-const AddWorkout = () => {
+const AddWorkout: React.FC<IReload> = ({ setRefresh, refresh }) => {
   const [title, setTitle] = useState<string>("");
   const [load, setLoad] = useState<string>("");
   const [reps, setReps] = useState<string>("");
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     console.log(title, load, reps);
     setLoad("");
     setReps("");
     setTitle("");
+    const res = await fetch("http://localhost:4000/workout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ title: title, load: load, reps: reps }),
+    });
+    const data = await res.json();
+    console.log(data);
+    setRefresh(!refresh);
   };
   return (
     <>

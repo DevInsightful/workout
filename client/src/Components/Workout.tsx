@@ -1,14 +1,28 @@
 import React from "react";
 import { IWorkout } from "./types";
 
-const Workout: React.FC<IWorkout> = ({ title, load, reps, time, _id }) => {
+const Workout: React.FC<IWorkout> = ({
+  title,
+  load,
+  reps,
+  time,
+  _id,
+  refresh,
+  setRefresh,
+}) => {
   const handleClick = async (_id: number) => {
-    const res = await fetch(`http://localhost:4000/workout/${_id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    try {
+      const res = await fetch(`http://localhost:4000/workout/${_id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then(() => {
+        setRefresh(!refresh);
+      });
+    } catch (err) {
+      console.log(err);
+    }
     // const data = await res.json();
   };
   return (
