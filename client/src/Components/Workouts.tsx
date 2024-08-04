@@ -6,7 +6,12 @@ const Workouts: React.FC<IWorkouts> = ({ workouts, refresh, setRefresh }) => {
   const display = condition
     ? workouts.map((workouts, index) => {
         return (
-          <Workout key={index} {...workouts} refresh setRefresh={setRefresh} />
+          <Workout
+            key={index}
+            {...workouts}
+            refresh={refresh}
+            setRefresh={setRefresh}
+          />
         );
       })
     : workouts;

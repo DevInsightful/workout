@@ -12,14 +12,14 @@ const Workout: React.FC<IWorkout> = ({
 }) => {
   const handleClick = async (_id: number) => {
     try {
-      const res = await fetch(`http://localhost:4000/workout/${_id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }).then(() => {
-        setRefresh(!refresh);
-      });
+    const res = await fetch(`http://localhost:4000/workout/${_id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    setRefresh(!refresh);
+
     } catch (err) {
       console.log(err);
     }
