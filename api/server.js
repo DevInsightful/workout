@@ -6,6 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 const workoutroutes = require("./routes/workoutRoutes");
+const userRoutes = require("./routes/userRoutes");
 const connection = () => {
   mongoose
     .connect(process.env.ConnectionStr)
@@ -31,3 +32,4 @@ app.use((req, _res, next) => {
   next();
 });
 app.use("/workout", workoutroutes);
+app.use("/user", userRoutes);
