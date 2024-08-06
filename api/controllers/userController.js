@@ -1,3 +1,4 @@
+const User = require("../models/userModel");
 const signupUser = async (req, res) => {
   res.json({ message: "SignUp" });
 };
